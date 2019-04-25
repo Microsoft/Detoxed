@@ -1,0 +1,31 @@
+language: python
+
+python:
+- 3.6
+
+services:
+- docker
+
+env:
+- DOCKER_PYTHON_VERSION=3.4
+- DOCKER_PYTHON_VERSION=3.5
+- DOCKER_PYTHON_VERSION=3.6
+- DOCKER_PYTHON_VERSION=3.7
+
+install:
+- docker build --target=build --build-arg PYTHON_VERSION="${DOCKER_PYTHON_VERSION}" -t "detoxed-py-${DOCKER_PYTHON_VERSION}" .
+- docker build --build-arg PYTHON_VERSION="${DOCKER_PYTHON_VERSION}" .
+
+script:
+- export CODE_COV=`bash <(curl -s https://codecov.io/env)`
+- docker run $CODE_COV "detoxed-py-${DOCKER_PYTHON_VERSION}"
+
+deploy:
+  skip_existing: true
+  provider: pypi
+  user: $PYPI_USERNAME
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+  password:
+    secure: $PYPI_ENCRYPTED_PASSWORD
