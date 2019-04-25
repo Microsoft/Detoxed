@@ -1,0 +1,5 @@
+[FORMAT]
+max-line-length=120
+
+[MESSAGES CONTROL]
+disable = broad-except, no-self-use, too-few-public-methods, too-many-arguments
