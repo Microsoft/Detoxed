@@ -1,0 +1,7 @@
+include *.md
+include *.txt
+include LICENSE
+
+recursive-include samples *.*
+recursive-include tests *.*
+recursive-include detoxed *.*
