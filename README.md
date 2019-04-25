@@ -1,5 +1,15 @@
+# Detoxed
 
-# Contributing
+## About
+
+[![PyPI version](https://badge.fury.io/py/detoxed.svg)](https://badge.fury.io/py/detoxed)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/detoxed.svg)](https://pypi.org/project/detoxed/)
+[![PyPI - License](https://img.shields.io/pypi/l/detoxed.svg)](https://pypi.org/project/detoxed/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/detoxed.svg)](https://pypi.org/project/detoxed/)
+
+Note: how to use in dev ops pipeline with screenshots
+
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
