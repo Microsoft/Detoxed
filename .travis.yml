@@ -1,0 +1,25 @@
+language: python
+python:
+- 3.6
+services:
+- docker
+env:
+- DOCKER_PYTHON_VERSION=3.5
+- DOCKER_PYTHON_VERSION=3.6
+- DOCKER_PYTHON_VERSION=3.7
+install:
+- docker build --target=build --build-arg PYTHON_VERSION="${DOCKER_PYTHON_VERSION}"
+  -t "detoxed-py-${DOCKER_PYTHON_VERSION}" .
+- docker build --build-arg PYTHON_VERSION="${DOCKER_PYTHON_VERSION}" .
+script:
+- export CODE_COV=`bash <(curl -s https://codecov.io/env)`
+- docker run $CODE_COV "detoxed-py-${DOCKER_PYTHON_VERSION}"
+deploy:
+  skip_existing: true
+  provider: pypi
+  user: nmiodice
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+  password:
+    secure: pzJxYNb3cq0nXnsYVTBd4KYHg9WYedKNYEx0GWzk1MAFTl8sNCeol6KVacdjcxzFJRcPebZocPvQZ7gOhKMkaCuZHQzs/hGH2NMhTLW6PJNUBqbpj+mIsLzdcOkkMX2cQJ07TAbMw3cPP+zyN+FUhj8mcexkJBdHvcNxFecnU03xpkHpsI/R4ollMAKB6ILcscPS1w925AlMfkQdVV6vndhv0FCj/7uqodLLZqhpqgOmuKNcrXjJGrYLurmeThratPMbKDLswiHX77oX+++AsbziFiopAS1nqf1llX0qtAt8GZUuYL/kNSdlH5IFhkiqgZK/aMc8wFi2JeoORFCKNtTqGHx/fJFgybFS1bKjjYVg/Kj+qBSSuiZ1lQj4ky8ybeLU4xxR5uGlaHzmHP/lgphmdegtLfpUJ61erIQ9BwdA3nj0WL2v+u1rRatzyYoQuhnXev8ELv275iXgv/evfvE3n8JpcQ6csk7xkz/3a7MmIvG4pe66uUXXKybFDGc8HkqA5itzJwHVkSPcttUqnaOi2gd/XpS8k9p4zMb+aCFB86RFDRytDVntnDd1WHwA4vEpIPCZqLG6YjqKdAqBkW5Seoq3rW/2xDJ//ye/o1QQUS458JdxoZfNt7xSE+eXbwLSO0RPb2QJV6AfIwftnEj25Yb34sqLrzaQ5yAsCJI=
