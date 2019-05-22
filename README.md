@@ -15,8 +15,8 @@
 
 ## About
 
-[![Build Status](https://travis-ci.org/Microsoft/Detoxed.svg?branch=master)](https://travis-ci.org/microsoft/detoxed-py/)
-[![codecov](https://codecov.io/gh/Microsoft/Detoxed/branch/master/graph/badge.svg)](https://codecov.io/gh/microsoft/detoxed-py)
+[![Build Status](https://travis-ci.org/microsoft/detoxed-py.svg?branch=master)](https://travis-ci.org/microsoft/detoxed-py/)
+[![codecov](https://codecov.io/gh/microsoft/detoxed-py/branch/master/graph/badge.svg)](https://codecov.io/gh/microsoft/detoxed-py)
 [![PyPI version](https://badge.fury.io/py/detoxed.svg)](https://badge.fury.io/py/detoxed)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/detoxed.svg)](https://pypi.org/project/detoxed/)
 [![PyPI - License](https://img.shields.io/pypi/l/detoxed.svg)](https://pypi.org/project/detoxed/)
